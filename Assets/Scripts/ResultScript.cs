@@ -10,7 +10,7 @@ public class ResultScript : MonoBehaviour {
 
     public TreasureCountScript tcSctipt;
     public CountDownTimer CDTscript;
-    public GameObject unityChan;
+    public GameObject player;
     public Text timer;
 
     private bool timeOver;
@@ -20,8 +20,9 @@ public class ResultScript : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        player = GameObject.Find("Player");
         CDTscript = timer.GetComponent<CountDownTimer>();
-        tcSctipt = unityChan.GetComponent<TreasureCountScript>();
+        tcSctipt = player.GetComponent<TreasureCountScript>();
 
         foreach (Transform child in transform)
         {
@@ -48,22 +49,35 @@ public class ResultScript : MonoBehaviour {
                 SceneManager.LoadScene("Start");
             }
 
-            if (treasure < 1)
+            if (treasure == 0)
             {
 
-                result.text = ("ざんねんでした！");
+                result.text = ("0こゲット！");
 
-            } else if(treasure < 3){
+            } else if(treasure <= 1){
 
-                result.text = ("まだまだ だな・・・");
+                result.text = ("1こゲット！");
 
-            } else if(treasure < 5)
-            {
-                result.text = ("まあまあスゴイぞ");
+            } else if(treasure <= 2){
+
+                result.text = ("2こゲット！");
+
+            } else if(treasure <= 3){
+
+                result.text = ("3こゲット！");
+
+            } else if(treasure <= 4){
+
+                result.text = ("4こゲット！");
+                
+            } else if(treasure <= 5){
+
+                result.text = ("5こゲット！");
+                
             }
             else
             {
-                result.text = ("すごい！かんぺきだ！");
+                result.text = ("6こ以上ゲット！");
             }
         }
     }

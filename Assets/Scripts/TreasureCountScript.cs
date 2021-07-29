@@ -16,10 +16,12 @@ public class TreasureCountScript : MonoBehaviour {
 		
 	}
 
-    void OnCollisionEnter(Collision col){
+    void OnControllerColliderHit(ControllerColliderHit col){
 
         if(col.gameObject.tag == "Treasure")
         {
+            //Instantiate(particle, col.transform.position);
+            //particle.Play();
             treasure ++;
             Destroy(col.gameObject);
         }

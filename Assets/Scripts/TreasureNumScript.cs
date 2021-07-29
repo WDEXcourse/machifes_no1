@@ -6,15 +6,15 @@ using UnityEngine.UI;
 public class TreasureNumScript : MonoBehaviour {
 
     public TreasureCountScript tcSctipt;
-    public GameObject unityChan;
+    public GameObject player;
     private int treasure;
     private Text treasureNum;
 
     // Use this for initialization
     void Start() {
         treasureNum = GetComponentInChildren<Text>();
-        unityChan = GameObject.Find("UnityChan");
-        tcSctipt = unityChan.GetComponent<TreasureCountScript>();
+        player = GameObject.Find("Player");
+        tcSctipt = player.GetComponent<TreasureCountScript>();
     }
 	
 	// Update is called once per frame
